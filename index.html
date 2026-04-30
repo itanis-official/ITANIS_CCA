@@ -720,7 +720,7 @@
                     <div class="card-content">
                         <div class="card-number">I</div>
                         <h2 class="card-title">Client</h2>
-                        <p class="card-description">Outils de vente, CRM, campagnes et stratégies marketing</p>
+                        <p class="card-description">Gestion de la relation client et développement commercial/p>
                     </div>
                 </div>
  <!-- Cabinet Tunisie -->
@@ -737,7 +737,7 @@
                     <div class="card-content">
                         <div class="card-number">II</div>
                         <h2 class="card-title">Cabinet Tunisie</h2>
-                        <p class="card-description">Finance, comptabilité et pilotage budgétaire</p>
+                        <p class="card-description">Pilotage des activités et gestion opérationnelle locale</p>
                     </div>
                 </div>
  <!-- Cabinet France -->
@@ -754,7 +754,7 @@
                     <div class="card-content">
                         <div class="card-number">III</div>
                         <h2 class="card-title">Cabinet France</h2>
-                        <p class="card-description">Finance, comptabilité et pilotage budgétaire</p>
+                        <p class="card-description">Suivi des opérations et conformité du cabinet en France</p>
                     </div>
                 </div>
                 <!-- Dossier cabinet -->
@@ -771,7 +771,7 @@
                     <div class="card-content">
                         <div class="card-number">IV</div>
                         <h2 class="card-title">Dossier cabinet</h2>
-                        <p class="card-description">Guides, procédures et base de connaissances</p>
+                        <p class="card-description">Organisation et centralisation des dossiers internes</p>
                     </div>
                 </div>
 <!-- Documentation -->
@@ -788,7 +788,7 @@
                     <div class="card-content">
                         <div class="card-number">V</div>
                         <h2 class="card-title">Documentation</h2>
-                        <p class="card-description">Guides, procédures et base de connaissances</p>
+                        <p class="card-description">Référentiel documentaire et procédures internes</p>
                     </div>
                 </div>
                 <!-- Assistante cabinet -->
@@ -805,7 +805,7 @@
                     <div class="card-content">
                         <div class="card-number">VI</div>
                         <h2 class="card-title">Assistante cabinet</h2>
-                        <p class="card-description">Finance, comptabilité et pilotage budgétaire</p>
+                        <p class="card-description">Support administratif et coordination des tâches</p>
                     </div>
                 </div>
 <!-- Commissariat Aux Comptes -->
@@ -822,7 +822,7 @@
                     <div class="card-content">
                         <div class="card-number">VII</div>
                         <h2 class="card-title">Commissariat Aux Comptes</h2>
-                        <p class="card-description">Recrutement, formation, paie et gestion du personnel</p>
+                        <p class="card-description">Audit légal et certification des comptes</p>
                     </div>
                 </div>
                 <!-- Tenue comptable -->
@@ -839,7 +839,7 @@
                     <div class="card-content">
                         <div class="card-number">VIII</div>
                         <h2 class="card-title">Tenue comptable</h2>
-                        <p class="card-description">Contrats, conformité légale et conseil juridique</p>
+                        <p class="card-description">Gestion des écritures et suivi comptable quotidien</p>
                     </div>
                 </div>
 
@@ -858,7 +858,7 @@
                     <div class="card-content">
                         <div class="card-number">IX</div>
                         <h2 class="card-title">Assistance comptable</h2>
-                        <p class="card-description">Templates, formulaires et documents standardisés</p>
+                        <p class="card-description">Accompagnement et conseil en gestion comptable</p>
                     </div>
                 </div>
 
@@ -878,7 +878,7 @@
                     <div class="card-content">
                         <div class="card-number">X</div>
                         <h2 class="card-title">Mission spéciale</h2>
-                        <p class="card-description">Outils de vente, CRM, campagnes et stratégies marketing</p>
+                        <p class="card-description">Gestion des missions exceptionnelles et projets spécifiques</p>
                     </div>
                 </div>
 
@@ -898,7 +898,7 @@
                     <div class="card-content">
                         <div class="card-number">XI</div>
                         <h2 class="card-title">Expertise Judiciaire</h2>
-                        <p class="card-description">Normes ISO, audits et processus d'amélioration continue</p>
+                        <p class="card-description">Interventions légales et expertise auprès des tribunaux</p>
                     </div>
                 </div>
 
@@ -916,7 +916,7 @@
                     <div class="card-content">
                         <div class="card-number">XII</div>
                         <h2 class="card-title">Mission CI</h2>
-                        <p class="card-description">Support informatique, applications et infrastructure</p>
+                        <p class="card-description">Contrôle interne et gestion des risques</p>
                     </div>
                 </div>
             </div>
@@ -1050,7 +1050,9 @@
         document.querySelectorAll('.menu-card').forEach(card => {
             card.addEventListener('click', function() {
                 const url = this.getAttribute('data-url');
-                if (url) window.open(url, '_blank');
+               if (url) {
+            window.location.href = url; // même onglet
+        }
             });
             card.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
