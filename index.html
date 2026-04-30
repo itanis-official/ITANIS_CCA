@@ -1067,7 +1067,7 @@
             card.addEventListener('click', function() {
                 const url = this.getAttribute('data-url');
                if (url) {
-            window.location.href = url; // même onglet
+           window.open(url); // nouvelle onglet
         }
             });
             card.addEventListener('keypress', function(e) {
