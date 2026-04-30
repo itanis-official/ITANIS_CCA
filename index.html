@@ -506,7 +506,15 @@
             margin-top: 0.75rem;
             opacity: 0.9;
         }
-
+/* ===== LOGO ITANIS ===== */
+.logo {
+    height: 60px;           /* taille du logo */
+    width: auto;            /* garder les proportions */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;    /* centré + espace en bas */
+    transition: transform 0.3s ease;
+}
 
 .icon-documentation::before { content: '📚'; }
 .icon-client::before { content: '👤'; }
