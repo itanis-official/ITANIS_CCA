@@ -1544,38 +1544,39 @@ function setDocFilter(el, f) {
 
 function loadSharePointDocs() {
 
-    const url = `${SHAREPOINT_SITE}/_api/web/GetFolderByServerRelativeUrl('/Shared Documents')/Files?$expand=ListItemAllFields`;
+    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/GetFolderByServerRelativeUrl('/Shared Documents')/Files?$expand=ListItemAllFields";
 
     fetch(url, {
+        method: "GET",
         headers: {
-            'Accept': 'application/json;odata=verbose'
+            "Accept": "application/json;odata=verbose"
         },
-        credentials: 'include'
+        credentials: "include"
     })
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
+
+        console.log("DATA:", data); // DEBUG
 
         allDocs = data.d.results.map(file => ({
             FileLeafRef: file.Name,
             FileRef: file.ServerRelativeUrl,
             Modified: file.TimeLastModified,
-            Editor: { Title: file.Author ? file.Author.Title : '—' }
+            Editor: { Title: "—" }
         }));
 
         filteredDocs = [...allDocs];
 
-        const recent = allDocs.filter(d => isThisWeek(d.Modified)).length;
-
         document.getElementById('doc-total').textContent = allDocs.length;
-        document.getElementById('doc-recent').textContent = recent;
+        document.getElementById('doc-recent').textContent =
+            allDocs.filter(d => isThisWeek(d.Modified)).length;
 
         renderDocs();
     })
-    .catch(err => {
-        console.error("Erreur SharePoint:", err);
+    .catch(error => {
+        console.error("Erreur SharePoint:", error);
     });
 }
-
 loadSharePointDocs();
     </script>
 </body>
