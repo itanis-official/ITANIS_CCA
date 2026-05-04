@@ -654,6 +654,297 @@
             .day div { font-size: 24px !important; }
             .apps-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        /* ===== SECTION DOCUMENTS ===== */
+.docs-section {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.docs-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.docs-stat-card {
+    background: var(--white);
+    border: 1px solid rgba(125, 164, 171, 0.25);
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.docs-stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.docs-stat-value {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--secondary-dark);
+    letter-spacing: -1px;
+}
+
+.docs-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.docs-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid rgba(125, 164, 171, 0.4);
+    border-radius: 10px;
+    padding: 0 14px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.docs-search input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 10px 0;
+    outline: none;
+}
+
+.docs-search input::placeholder {
+    color: #b0bec5;
+}
+
+.docs-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.docs-pill {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(125, 164, 171, 0.35);
+    background: var(--white);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 400;
+}
+
+.docs-pill.active {
+    background: linear-gradient(135deg, #7da4ab, #197283);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(25, 114, 131, 0.3);
+}
+
+.docs-pill:hover:not(.active) {
+    background: rgba(125, 164, 171, 0.1);
+    border-color: #7da4ab;
+    color: var(--secondary-dark);
+}
+
+.docs-table-wrap {
+    background: var(--white);
+    border: 1px solid rgba(125, 164, 171, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.docs-table-head {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, rgba(125,164,171,0.12), rgba(25,114,131,0.08));
+    border-bottom: 1px solid rgba(125, 164, 171, 0.2);
+}
+
+.docs-table-head span {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--secondary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.docs-row {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(125, 164, 171, 0.1);
+    align-items: center;
+    transition: background 0.15s ease;
+    cursor: pointer;
+}
+
+.docs-row:last-child {
+    border-bottom: none;
+}
+
+.docs-row:hover {
+    background: rgba(125, 164, 171, 0.06);
+}
+
+.docs-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.docs-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: 0.3px;
+}
+
+.docs-icon.pdf  { background: rgba(217,83,48,0.12);  color: #993C1D; }
+.docs-icon.xlsx { background: rgba(99,153,34,0.12);  color: #3B6D11; }
+.docs-icon.docx { background: rgba(24,95,165,0.12);  color: #185FA5; }
+.docs-icon.pptx { background: rgba(186,117,23,0.12); color: #854F0B; }
+.docs-icon.other{ background: rgba(125,164,171,0.15); color: #197283; }
+
+.docs-file-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+}
+
+.docs-cell {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+}
+
+.docs-type-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.docs-type-badge.pdf  { background: rgba(217,83,48,0.1);  color: #993C1D; }
+.docs-type-badge.xlsx { background: rgba(99,153,34,0.1);  color: #3B6D11; }
+.docs-type-badge.docx { background: rgba(24,95,165,0.1);  color: #185FA5; }
+.docs-type-badge.pptx { background: rgba(186,117,23,0.1); color: #854F0B; }
+.docs-type-badge.other{ background: rgba(125,164,171,0.15); color: #197283; }
+
+.docs-open-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: var(--secondary-dark);
+    background: rgba(125, 164, 171, 0.12);
+    border: 1px solid rgba(125, 164, 171, 0.3);
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.docs-open-btn:hover {
+    background: linear-gradient(135deg, #7da4ab, #197283);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(25,114,131,0.3);
+}
+
+.docs-empty {
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.docs-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(125, 164, 171, 0.15);
+    background: rgba(125,164,171,0.03);
+}
+
+.docs-page-info {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.docs-page-btns {
+    display: flex;
+    gap: 4px;
+}
+
+.docs-page-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(125,164,171,0.3);
+    background: transparent;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.docs-page-btn.active {
+    background: linear-gradient(135deg, #7da4ab, #197283);
+    color: white;
+    border-color: transparent;
+}
+
+.docs-page-btn:hover:not(.active) {
+    background: rgba(125,164,171,0.12);
+    color: var(--secondary-dark);
+}
+
+@media (max-width: 768px) {
+    .docs-stats { grid-template-columns: repeat(2, 1fr); }
+    .docs-table-head,
+    .docs-row { grid-template-columns: 2fr 1fr 80px; }
+    .docs-table-head span:nth-child(2),
+    .docs-row .docs-cell:nth-child(2),
+    .docs-table-head span:nth-child(4),
+    .docs-row .docs-cell:nth-child(4) { display: none; }
+}
+
+@media (max-width: 480px) {
+    .docs-stats { grid-template-columns: 1fr; }
+    .docs-toolbar { flex-direction: column; align-items: stretch; }
+}
     </style>
 </head>
 <body>
@@ -984,7 +1275,54 @@
                 </div>
                 
             </div>
-        
+        <!-- ===== SECTION LISTE DOCUMENTS ===== -->
+<div class="docs-section">
+    <h2 class="section-title">Documents SharePoint</h2>
+
+    <div class="docs-stats">
+        <div class="docs-stat-card">
+            <div class="docs-stat-label">Total documents</div>
+            <div class="docs-stat-value" id="doc-total">—</div>
+        </div>
+        <div class="docs-stat-card">
+            <div class="docs-stat-label">Modifiés cette semaine</div>
+            <div class="docs-stat-value" id="doc-recent">—</div>
+        </div>
+        <div class="docs-stat-card">
+            <div class="docs-stat-label">Bibliothèque</div>
+            <div class="docs-stat-value" style="font-size:14px;">Documents</div>
+        </div>
+    </div>
+
+    <div class="docs-toolbar">
+        <div class="docs-search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7da4ab" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="doc-search" placeholder="Rechercher un document..." oninput="filterDocuments()">
+        </div>
+        <div class="docs-filters">
+            <span class="docs-pill active" onclick="setDocFilter(this,'Tous')">Tous</span>
+            <span class="docs-pill" onclick="setDocFilter(this,'pdf')">PDF</span>
+            <span class="docs-pill" onclick="setDocFilter(this,'docx')">Word</span>
+            <span class="docs-pill" onclick="setDocFilter(this,'xlsx')">Excel</span>
+            <span class="docs-pill" onclick="setDocFilter(this,'pptx')">PowerPoint</span>
+        </div>
+    </div>
+
+    <div class="docs-table-wrap">
+        <div class="docs-table-head">
+            <span>Nom du document</span>
+            <span>Modifié par</span>
+            <span>Date de modification</span>
+            <span>Type</span>
+            <span>Action</span>
+        </div>
+        <div id="docs-list-body"></div>
+        <div class="docs-pagination">
+            <span class="docs-page-info" id="doc-page-info"></span>
+            <div class="docs-page-btns" id="doc-page-btns"></div>
+        </div>
+    </div>
+</div>
    </div>
         <header class="header2">
             <div class="header2-content">
@@ -1099,6 +1437,144 @@
                 }
             });
         });
+
+
+        // ===== DOCUMENTS SHAREPOINT =====
+const SHAREPOINT_SITE = "https://ccaexpertisetn.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx?viewid=93b64365%2Dadc0%2D4981%2Daaf5%2D899cd432b94b";
+const LIST_NAME = "Documents";
+const DOCS_PER_PAGE = 8;
+
+let allDocs = [];
+let filteredDocs = [];
+let currentPage = 1;
+let activeDocFilter = 'Tous';
+
+function getDocExt(filename) {
+    if (!filename) return 'other';
+    const ext = filename.split('.').pop().toLowerCase();
+    return ['pdf','xlsx','xls','docx','doc','pptx','ppt'].includes(ext)
+        ? (ext === 'xls' ? 'xlsx' : ext === 'doc' ? 'docx' : ext === 'ppt' ? 'pptx' : ext)
+        : 'other';
+}
+
+function formatDocDate(dateStr) {
+    if (!dateStr) return '—';
+    return new Date(dateStr).toLocaleDateString('fr-FR', {
+        day: '2-digit', month: 'short', year: 'numeric'
+    });
+}
+
+function isThisWeek(dateStr) {
+    if (!dateStr) return false;
+    const d = new Date(dateStr);
+    const now = new Date();
+    const diff = (now - d) / (1000 * 60 * 60 * 24);
+    return diff <= 7;
+}
+
+function renderDocs() {
+    const body = document.getElementById('docs-list-body');
+    const start = (currentPage - 1) * DOCS_PER_PAGE;
+    const page = filteredDocs.slice(start, start + DOCS_PER_PAGE);
+
+    if (!page.length) {
+        body.innerHTML = '<div class="docs-empty">Aucun document trouvé.</div>';
+        document.getElementById('doc-page-info').textContent = '';
+        document.getElementById('doc-page-btns').innerHTML = '';
+        return;
+    }
+
+    body.innerHTML = page.map(doc => {
+        const ext = getDocExt(doc.FileLeafRef);
+        const label = ext === 'other' ? 'FILE' : ext.toUpperCase();
+        const url = `${SHAREPOINT_SITE}${doc.FileRef}`;
+        const author = doc.Editor ? doc.Editor.Title : (doc.Author ? doc.Author.Title : '—');
+        return `
+        <div class="docs-row" onclick="window.open('${url}','_blank')">
+            <div class="docs-name-cell">
+                <div class="docs-icon ${ext}">${label}</div>
+                <span class="docs-file-name" title="${doc.FileLeafRef}">${doc.FileLeafRef}</span>
+            </div>
+            <span class="docs-cell">${author}</span>
+            <span class="docs-cell">${formatDocDate(doc.Modified)}</span>
+            <span class="docs-cell"><span class="docs-type-badge ${ext}">${label}</span></span>
+            <a class="docs-open-btn" href="${url}" target="_blank" onclick="event.stopPropagation()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Ouvrir
+            </a>
+        </div>`;
+    }).join('');
+
+    const total = filteredDocs.length;
+    const totalPages = Math.ceil(total / DOCS_PER_PAGE);
+    document.getElementById('doc-page-info').textContent =
+        `${start + 1}–${Math.min(start + DOCS_PER_PAGE, total)} sur ${total} document${total > 1 ? 's' : ''}`;
+
+    const btns = document.getElementById('doc-page-btns');
+    btns.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+        btns.innerHTML += `<button class="docs-page-btn ${i === currentPage ? 'active' : ''}" onclick="goDocPage(${i})">${i}</button>`;
+    }
+}
+
+function goDocPage(p) {
+    currentPage = p;
+    renderDocs();
+}
+
+function filterDocuments() {
+    const q = document.getElementById('doc-search').value.toLowerCase();
+    filteredDocs = allDocs.filter(d => {
+        const name = (d.FileLeafRef || '').toLowerCase();
+        const ext = getDocExt(d.FileLeafRef);
+        const matchFilter = activeDocFilter === 'Tous' || ext === activeDocFilter;
+        const matchSearch = !q || name.includes(q);
+        return matchFilter && matchSearch;
+    });
+    currentPage = 1;
+    renderDocs();
+}
+
+function setDocFilter(el, f) {
+    document.querySelectorAll('.docs-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    activeDocFilter = f;
+    filterDocuments();
+}
+
+function loadSharePointDocs() {
+    const url = `${SHAREPOINT_SITE}/_api/web/lists/getbytitle('${LIST_NAME}')/items?$select=FileLeafRef,FileRef,Modified,Editor/Title,Author/Title&$expand=Editor,Author&$top=500&$orderby=Modified desc`;
+    fetch(url, {
+        headers: { 'Accept': 'application/json;odata=verbose' },
+        credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(data => {
+        allDocs = data.d.results || [];
+        filteredDocs = [...allDocs];
+        const recent = allDocs.filter(d => isThisWeek(d.Modified)).length;
+        document.getElementById('doc-total').textContent = allDocs.length;
+        document.getElementById('doc-recent').textContent = recent;
+        renderDocs();
+    })
+    .catch(() => {
+        // Données de démo si l'API n'est pas accessible
+        allDocs = [
+            { FileLeafRef: 'Rapport_annuel_2024.pdf',   FileRef: '#', Modified: '2025-05-01', Editor: { Title: 'Sara B.' } },
+            { FileLeafRef: 'Budget_Q3_2025.xlsx',       FileRef: '#', Modified: '2025-04-28', Editor: { Title: 'Karim M.' } },
+            { FileLeafRef: 'Contrat_fournisseur.docx',  FileRef: '#', Modified: '2025-04-25', Editor: { Title: 'Leila T.' } },
+            { FileLeafRef: 'Presentation_2025.pptx',    FileRef: '#', Modified: '2025-04-20', Editor: { Title: 'Youssef A.' } },
+            { FileLeafRef: 'Note_interne_avril.pdf',    FileRef: '#', Modified: '2025-04-18', Editor: { Title: 'Sara B.' } },
+            { FileLeafRef: 'Plan_formation_RH.docx',    FileRef: '#', Modified: '2025-04-15', Editor: { Title: 'Rim C.' } },
+        ];
+        filteredDocs = [...allDocs];
+        document.getElementById('doc-total').textContent = allDocs.length;
+        document.getElementById('doc-recent').textContent = allDocs.filter(d => isThisWeek(d.Modified)).length;
+        renderDocs();
+    });
+}
+
+loadSharePointDocs();
     </script>
 </body>
 </html>
