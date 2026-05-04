@@ -1543,34 +1543,36 @@ function setDocFilter(el, f) {
 }
 
 function loadSharePointDocs() {
-    const url = `${SHAREPOINT_SITE}/_api/web/lists/getbytitle('${LIST_NAME}')/items?$select=FileLeafRef,FileRef,Modified,Editor/Title,Author/Title&$expand=Editor,Author&$top=500&$orderby=Modified desc`;
+
+    const url = `${SHAREPOINT_SITE}/_api/web/GetFolderByServerRelativeUrl('/Shared Documents')/Files?$expand=ListItemAllFields`;
+
     fetch(url, {
-        headers: { 'Accept': 'application/json;odata=verbose' },
+        headers: {
+            'Accept': 'application/json;odata=verbose'
+        },
         credentials: 'include'
     })
     .then(res => res.json())
     .then(data => {
-        allDocs = data.d.results || [];
+
+        allDocs = data.d.results.map(file => ({
+            FileLeafRef: file.Name,
+            FileRef: file.ServerRelativeUrl,
+            Modified: file.TimeLastModified,
+            Editor: { Title: file.Author ? file.Author.Title : '—' }
+        }));
+
         filteredDocs = [...allDocs];
+
         const recent = allDocs.filter(d => isThisWeek(d.Modified)).length;
+
         document.getElementById('doc-total').textContent = allDocs.length;
         document.getElementById('doc-recent').textContent = recent;
+
         renderDocs();
     })
-    .catch(() => {
-        // Données de démo si l'API n'est pas accessible
-        allDocs = [
-            { FileLeafRef: 'Rapport_annuel_2024.pdf',   FileRef: '#', Modified: '2025-05-01', Editor: { Title: 'Sara B.' } },
-            { FileLeafRef: 'Budget_Q3_2025.xlsx',       FileRef: '#', Modified: '2025-04-28', Editor: { Title: 'Karim M.' } },
-            { FileLeafRef: 'Contrat_fournisseur.docx',  FileRef: '#', Modified: '2025-04-25', Editor: { Title: 'Leila T.' } },
-            { FileLeafRef: 'Presentation_2025.pptx',    FileRef: '#', Modified: '2025-04-20', Editor: { Title: 'Youssef A.' } },
-            { FileLeafRef: 'Note_interne_avril.pdf',    FileRef: '#', Modified: '2025-04-18', Editor: { Title: 'Sara B.' } },
-            { FileLeafRef: 'Plan_formation_RH.docx',    FileRef: '#', Modified: '2025-04-15', Editor: { Title: 'Rim C.' } },
-        ];
-        filteredDocs = [...allDocs];
-        document.getElementById('doc-total').textContent = allDocs.length;
-        document.getElementById('doc-recent').textContent = allDocs.filter(d => isThisWeek(d.Modified)).length;
-        renderDocs();
+    .catch(err => {
+        console.error("Erreur SharePoint:", err);
     });
 }
 
