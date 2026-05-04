@@ -1440,7 +1440,7 @@
 
 
         // ===== DOCUMENTS SHAREPOINT =====
-const SHAREPOINT_SITE = "https://ccaexpertisetn.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx?viewid=93b64365%2Dadc0%2D4981%2Daaf5%2D899cd432b94b";
+const SHAREPOINT_SITE = "https://ccaexpertisetn.sharepoint.com";
 const LIST_NAME = "Documents";
 const DOCS_PER_PAGE = 8;
 
@@ -1487,7 +1487,7 @@ function renderDocs() {
     body.innerHTML = page.map(doc => {
         const ext = getDocExt(doc.FileLeafRef);
         const label = ext === 'other' ? 'FILE' : ext.toUpperCase();
-        const url = `${SHAREPOINT_SITE}${doc.FileRef}`;
+        const url = `https://ccaexpertisetn.sharepoint.com${doc.FileRef}`;
         const author = doc.Editor ? doc.Editor.Title : (doc.Author ? doc.Author.Title : '—');
         return `
         <div class="docs-row" onclick="window.open('${url}','_blank')">
