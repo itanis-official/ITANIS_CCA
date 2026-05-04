@@ -1544,23 +1544,29 @@ function setDocFilter(el, f) {
 
 function loadSharePointDocs() {
 
-    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/lists/getbytitle('Documents')/items?$select=FileLeafRef,FileRef,Modified&$orderby=Modified desc&$top=200";
+    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/lists/getbytitle('Documents')/RenderListDataAsStream";
 
     fetch(url, {
-        method: "GET",
+        method: "POST",
         headers: {
-            "Accept": "application/json;odata=verbose"
+            "Accept": "application/json;odata=verbose",
+            "Content-Type": "application/json"
         },
-        credentials: "include"
+        credentials: "include",
+        body: JSON.stringify({
+            parameters: {
+                ViewXml: "<View><RowLimit>200</RowLimit></View>"
+            }
+        })
     })
     .then(res => res.json())
     .then(data => {
 
-        console.log("DATA:", data);
+        console.log("RAW DATA:", data);
 
-        const items = data.d.results;
+        const rows = data.ListData.Row || [];
 
-        allDocs = items.map(d => ({
+        allDocs = rows.map(d => ({
             FileLeafRef: d.FileLeafRef,
             FileRef: d.FileRef,
             Modified: d.Modified
@@ -1569,13 +1575,14 @@ function loadSharePointDocs() {
         filteredDocs = [...allDocs];
 
         document.getElementById('doc-total').textContent = allDocs.length;
+
         document.getElementById('doc-recent').textContent =
             allDocs.filter(d => isThisWeek(d.Modified)).length;
 
         renderDocs();
     })
     .catch(err => {
-        console.error("Erreur SharePoint:", err);
+        console.error("SharePoint error:", err);
     });
 }
 loadSharePointDocs();
