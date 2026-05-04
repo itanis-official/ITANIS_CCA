@@ -1544,7 +1544,7 @@ function setDocFilter(el, f) {
 
 function loadSharePointDocs() {
 
-    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/GetFolderByServerRelativeUrl('/Shared Documents')/Files?$expand=ListItemAllFields";
+    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/lists/getbytitle('Documents')/items?$select=FileLeafRef,FileRef,Modified,Editor/Title&$expand=Editor&$orderby=Modified desc&$top=100";
 
     fetch(url, {
         method: "GET",
@@ -1559,11 +1559,11 @@ function loadSharePointDocs() {
         console.log("DATA:", data); // DEBUG
 
         allDocs = data.d.results.map(file => ({
-            FileLeafRef: file.Name,
-            FileRef: file.ServerRelativeUrl,
-            Modified: file.TimeLastModified,
-            Editor: { Title: "—" }
-        }));
+    FileLeafRef: file.FileLeafRef,
+    FileRef: file.FileRef,
+    Modified: file.Modified,
+    Editor: file.Editor || { Title: "—" }
+}));
 
         filteredDocs = [...allDocs];
 
