@@ -1544,7 +1544,7 @@ function setDocFilter(el, f) {
 
 function loadSharePointDocs() {
 
-    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/lists/getbytitle('Documents')/items?$select=FileLeafRef,FileRef,Modified,Editor/Title&$expand=Editor&$orderby=Modified desc&$top=100";
+    const url = "https://ccaexpertisetn.sharepoint.com/_api/web/lists/getbytitle('Documents')/items?$select=FileLeafRef,FileRef,Modified&$orderby=Modified desc&$top=200";
 
     fetch(url, {
         method: "GET",
@@ -1553,17 +1553,18 @@ function loadSharePointDocs() {
         },
         credentials: "include"
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
 
-        console.log("DATA:", data); // DEBUG
+        console.log("DATA:", data);
 
-        allDocs = data.d.results.map(file => ({
-    FileLeafRef: file.FileLeafRef,
-    FileRef: file.FileRef,
-    Modified: file.Modified,
-    Editor: file.Editor || { Title: "—" }
-}));
+        const items = data.d.results;
+
+        allDocs = items.map(d => ({
+            FileLeafRef: d.FileLeafRef,
+            FileRef: d.FileRef,
+            Modified: d.Modified
+        }));
 
         filteredDocs = [...allDocs];
 
@@ -1573,8 +1574,8 @@ function loadSharePointDocs() {
 
         renderDocs();
     })
-    .catch(error => {
-        console.error("Erreur SharePoint:", error);
+    .catch(err => {
+        console.error("Erreur SharePoint:", err);
     });
 }
 loadSharePointDocs();
