@@ -50,7 +50,18 @@
             50% { transform: translate(-5%, -5%); }
             100% { transform: translate(0,0); }
         }
+.hero-image {
+    width: 100%;
+    height: 250px; /* tu peux changer */
+    overflow: hidden;
+}
 
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ✅ remplit sans déformation */
+    display: block;
+}
         /* ===== HEADER ===== */
         .header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
@@ -951,7 +962,9 @@
 
     <div class="main-container">
 
-      
+      <div class="hero-image">
+    <img src="template-SharePoint-CCA.png" alt="Bannière">
+</div>
         <!-- HEADER -->
         <header class="header">
             <h1>Portail Intranet</h1>
