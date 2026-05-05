@@ -59,11 +59,13 @@
 .hero-image img {
     width: 100%;
     height: 100%;
+    
     object-fit: cover; /* ✅ remplit sans déformation */
     display: block;
 }
 @media (max-width: 768px) {
     .hero-image img {
+         background-image: url("image-mobile.png"); /* 👉 change ici */
         object-position: 90% center;
     }
 }
@@ -964,10 +966,7 @@
     </style>
 </head>
 <body>
-<picture>
-    <source media="(max-width: 768px)" srcset="image-mobile.png">
-    <img src="image-mobile.png" alt="Bannière">
-</picture>
+
     <div class="main-container">
 
       <div class="hero-image">
