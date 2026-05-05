@@ -951,29 +951,7 @@
 
     <div class="main-container">
 
-        <!-- ===== SECTION MÉTÉO ===== -->
-        <div class="weather-section">
-            <div class="today">
-                <div>
-                    <div class="location" id="city">Chargement...</div>
-                    <div class="date" id="date"></div>
-                </div>
-                <div class="main">
-                    <div>
-                        <div class="temp" id="temp">--°</div>
-                        <div class="desc" id="desc">...</div>
-                    </div>
-                    <div class="icon" id="icon">⛅</div>
-                </div>
-                <div class="details">
-                    <div class="box"><h4>Ressenti</h4><p id="feels">--</p></div>
-                    <div class="box"><h4>Humidité</h4><p id="humidity">--</p></div>
-                    <div class="box"><h4>Vent</h4><p id="wind">--</p></div>
-                    <div class="box"><h4>Pression</h4><p id="pressure">--</p></div>
-                </div>
-            </div>
-            <div class="forecast" id="forecast"></div>
-        </div>
+      
         <!-- HEADER -->
         <header class="header">
             <h1>Portail Intranet</h1>
@@ -1334,28 +1312,7 @@
     </div>
 
     <script>
-        const API_KEY = "064f40f27a68541ca0db452cd3194820";
 
-        document.getElementById("date").innerText = new Date().toLocaleString("fr-FR", {
-            weekday: "short",
-            day: "2-digit",
-            month: "short",
-            hour: "2-digit",
-            minute: "2-digit"
-        });
-
-        function getIcon(main) {
-            switch(main) {
-                case "Clear": return "☀️";
-                case "Clouds": return "⛅";
-                case "Rain": return "🌧️";
-                case "Thunderstorm": return "🌩️";
-                case "Snow": return "❄️";
-                case "Mist":
-                case "Fog": return "🌫️";
-                default: return "🌤️";
-            }
-        }
 
         function getWeather(lat, lon) {
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=fr&appid=${API_KEY}`)
