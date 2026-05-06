@@ -50,25 +50,26 @@
             50% { transform: translate(-5%, -5%); }
             100% { transform: translate(0,0); }
         }
-.hero-image {
-    width: 100%;
-    height: 250px; /* tu peux changer */
-    overflow: hidden;
-}
 
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    
-    object-fit: cover; /* ✅ remplit sans déformation */
-    display: block;
-}
-@media (max-width: 768px) {
-    .hero-image img {
-         background-image: url("image-mobile.png"); /* 👉 change ici */
-        object-position: 90% center;
-    }
-}
+        .hero-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero-image img {
+                object-position: 90% center;
+            }
+        }
+
         /* ===== HEADER ===== */
         .header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
@@ -101,45 +102,6 @@
         }
 
         .header p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1rem;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header2 {
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(8, 20, 47, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header2::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .header2 h1 {
-            color: var(--white);
-            font-size: 2.25rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header2 p {
             color: rgba(255, 255, 255, 0.85);
             font-size: 1rem;
             font-weight: 300;
@@ -523,38 +485,19 @@
             margin-top: 0.75rem;
             opacity: 0.9;
         }
-/* ===== LOGO ITANIS ===== */
-.logo {
-    height: 60px;           /* taille du logo */
-    width: auto;            /* garder les proportions */
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 10px;    /* centré + espace en bas */
-    transition: transform 0.3s ease;
-}
 
-.icon-documentation::before { content: '📚'; }
-.icon-client::before { content: '👤'; }
-
-.icon-cabinet-tunisie::before { content: '🏢'; }
-
-.icon-cabinet-france::before { content: '🏢'; }
-
-.icon-dossier::before { content: '📁'; }
-
-.icon-assistante::before { content: '👩‍💼'; }
-
-.icon-commissariat::before { content: '📊'; }
-
-.icon-tenue::before { content: '📘'; }
-
-.icon-assistance::before { content: '🤝'; }
-
-.icon-mission-speciale::before { content: '🚀'; }
-
-.icon-expertise::before { content: '⚖️'; }
-
-.icon-mission-ci::before { content: '🔍'; }
+        .icon-documentation::before { content: '📚'; }
+        .icon-client::before { content: '👤'; }
+        .icon-cabinet-tunisie::before { content: '🏢'; }
+        .icon-cabinet-france::before { content: '🏢'; }
+        .icon-dossier::before { content: '📁'; }
+        .icon-assistante::before { content: '👩‍💼'; }
+        .icon-commissariat::before { content: '📊'; }
+        .icon-tenue::before { content: '📘'; }
+        .icon-assistance::before { content: '🤝'; }
+        .icon-mission-speciale::before { content: '🚀'; }
+        .icon-expertise::before { content: '⚖️'; }
+        .icon-mission-ci::before { content: '🔍'; }
 
         @keyframes fadeInUp {
             from {
@@ -661,8 +604,7 @@
 
         @media (max-width: 480px) {
             .header h1 { font-size: 1.5rem; }
-            .main-container  {  min-height: 100%;  /* ✅ au lieu de height: 100% */
-        padding: 1.5rem;  }
+            .main-container  {  min-height: 100%; padding: 1.5rem;  }
             .temp { font-size: 40px; }
             .icon { font-size: 40px; }
             .menu-card { padding: 1.25rem; }
@@ -673,305 +615,359 @@
         }
 
         /* ===== SECTION DOCUMENTS ===== */
-.docs-section {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
+        .docs-section {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
 
-.docs-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 1.5rem;
-}
+        .docs-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
 
-.docs-stat-card {
-    background: var(--white);
-    border: 1px solid rgba(125, 164, 171, 0.25);
-    border-radius: 14px;
-    padding: 16px 20px;
-    box-shadow: var(--card-shadow);
-}
+        .docs-stat-card {
+            background: var(--white);
+            border: 1px solid rgba(125, 164, 171, 0.25);
+            border-radius: 14px;
+            padding: 16px 20px;
+            box-shadow: var(--card-shadow);
+        }
 
-.docs-stat-label {
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-bottom: 6px;
-    font-weight: 400;
-}
+        .docs-stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            font-weight: 400;
+        }
 
-.docs-stat-value {
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--secondary-dark);
-    letter-spacing: -1px;
-}
+        .docs-stat-value {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--secondary-dark);
+            letter-spacing: -1px;
+        }
 
-.docs-toolbar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
+        .docs-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
 
-.docs-search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--white);
-    border: 1px solid rgba(125, 164, 171, 0.4);
-    border-radius: 10px;
-    padding: 0 14px;
-    flex: 1;
-    min-width: 200px;
-}
+        .docs-search {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid rgba(125, 164, 171, 0.4);
+            border-radius: 10px;
+            padding: 0 14px;
+            flex: 1;
+            min-width: 200px;
+        }
 
-.docs-search input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    color: var(--text-primary);
-    padding: 10px 0;
-    outline: none;
-}
+        .docs-search input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            color: var(--text-primary);
+            padding: 10px 0;
+            outline: none;
+        }
 
-.docs-search input::placeholder {
-    color: #b0bec5;
-}
+        .docs-search input::placeholder {
+            color: #b0bec5;
+        }
 
-.docs-filters {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
+        .docs-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-.docs-pill {
-    font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(125, 164, 171, 0.35);
-    background: var(--white);
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-weight: 400;
-}
+        .docs-pill {
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(125, 164, 171, 0.35);
+            background: var(--white);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 400;
+        }
 
-.docs-pill.active {
-    background: linear-gradient(135deg, #7da4ab, #197283);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 3px 10px rgba(25, 114, 131, 0.3);
-}
+        .docs-pill.active {
+            background: linear-gradient(135deg, #7da4ab, #197283);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 3px 10px rgba(25, 114, 131, 0.3);
+        }
 
-.docs-pill:hover:not(.active) {
-    background: rgba(125, 164, 171, 0.1);
-    border-color: #7da4ab;
-    color: var(--secondary-dark);
-}
+        .docs-pill:hover:not(.active) {
+            background: rgba(125, 164, 171, 0.1);
+            border-color: #7da4ab;
+            color: var(--secondary-dark);
+        }
 
-.docs-table-wrap {
-    background: var(--white);
-    border: 1px solid rgba(125, 164, 171, 0.2);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-}
+        .docs-table-wrap {
+            background: var(--white);
+            border: 1px solid rgba(125, 164, 171, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
 
-.docs-table-head {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, rgba(125,164,171,0.12), rgba(25,114,131,0.08));
-    border-bottom: 1px solid rgba(125, 164, 171, 0.2);
-}
+        .docs-table-head {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(125,164,171,0.12), rgba(25,114,131,0.08));
+            border-bottom: 1px solid rgba(125, 164, 171, 0.2);
+        }
 
-.docs-table-head span {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--secondary-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-}
+        .docs-table-head span {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--secondary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
 
-.docs-row {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
-    padding: 13px 20px;
-    border-bottom: 1px solid rgba(125, 164, 171, 0.1);
-    align-items: center;
-    transition: background 0.15s ease;
-    cursor: pointer;
-}
+        .docs-row {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1.2fr 0.7fr 80px;
+            padding: 13px 20px;
+            border-bottom: 1px solid rgba(125, 164, 171, 0.1);
+            align-items: center;
+            transition: background 0.15s ease;
+            cursor: pointer;
+        }
 
-.docs-row:last-child {
-    border-bottom: none;
-}
+        .docs-row:last-child {
+            border-bottom: none;
+        }
 
-.docs-row:hover {
-    background: rgba(125, 164, 171, 0.06);
-}
+        .docs-row:hover {
+            background: rgba(125, 164, 171, 0.06);
+        }
 
-.docs-name-cell {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .docs-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.docs-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 600;
-    flex-shrink: 0;
-    letter-spacing: 0.3px;
-}
+        .docs-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+            letter-spacing: 0.3px;
+        }
 
-.docs-icon.pdf  { background: rgba(217,83,48,0.12);  color: #993C1D; }
-.docs-icon.xlsx { background: rgba(99,153,34,0.12);  color: #3B6D11; }
-.docs-icon.docx { background: rgba(24,95,165,0.12);  color: #185FA5; }
-.docs-icon.pptx { background: rgba(186,117,23,0.12); color: #854F0B; }
-.docs-icon.other{ background: rgba(125,164,171,0.15); color: #197283; }
+        .docs-icon.pdf  { background: rgba(217,83,48,0.12);  color: #993C1D; }
+        .docs-icon.xlsx { background: rgba(99,153,34,0.12);  color: #3B6D11; }
+        .docs-icon.docx { background: rgba(24,95,165,0.12);  color: #185FA5; }
+        .docs-icon.pptx { background: rgba(186,117,23,0.12); color: #854F0B; }
+        .docs-icon.other{ background: rgba(125,164,171,0.15); color: #197283; }
 
-.docs-file-name {
-    font-size: 13px;
-    color: var(--text-primary);
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 260px;
-}
+        .docs-file-name {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 260px;
+        }
 
-.docs-cell {
-    font-size: 12.5px;
-    color: var(--text-secondary);
-}
+        .docs-cell {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+        }
 
-.docs-type-badge {
-    display: inline-block;
-    font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-}
+        .docs-type-badge {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
 
-.docs-type-badge.pdf  { background: rgba(217,83,48,0.1);  color: #993C1D; }
-.docs-type-badge.xlsx { background: rgba(99,153,34,0.1);  color: #3B6D11; }
-.docs-type-badge.docx { background: rgba(24,95,165,0.1);  color: #185FA5; }
-.docs-type-badge.pptx { background: rgba(186,117,23,0.1); color: #854F0B; }
-.docs-type-badge.other{ background: rgba(125,164,171,0.15); color: #197283; }
+        .docs-type-badge.pdf  { background: rgba(217,83,48,0.1);  color: #993C1D; }
+        .docs-type-badge.xlsx { background: rgba(99,153,34,0.1);  color: #3B6D11; }
+        .docs-type-badge.docx { background: rgba(24,95,165,0.1);  color: #185FA5; }
+        .docs-type-badge.pptx { background: rgba(186,117,23,0.1); color: #854F0B; }
+        .docs-type-badge.other{ background: rgba(125,164,171,0.15); color: #197283; }
 
-.docs-open-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: var(--secondary-dark);
-    background: rgba(125, 164, 171, 0.12);
-    border: 1px solid rgba(125, 164, 171, 0.3);
-    border-radius: 8px;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
+        .docs-open-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--secondary-dark);
+            background: rgba(125, 164, 171, 0.12);
+            border: 1px solid rgba(125, 164, 171, 0.3);
+            border-radius: 8px;
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
 
-.docs-open-btn:hover {
-    background: linear-gradient(135deg, #7da4ab, #197283);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 3px 10px rgba(25,114,131,0.3);
-}
+        .docs-open-btn:hover {
+            background: linear-gradient(135deg, #7da4ab, #197283);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 3px 10px rgba(25,114,131,0.3);
+        }
 
-.docs-empty {
-    padding: 3rem;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 14px;
-}
+        .docs-empty {
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
 
-.docs-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-    border-top: 1px solid rgba(125, 164, 171, 0.15);
-    background: rgba(125,164,171,0.03);
-}
+        .docs-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-top: 1px solid rgba(125, 164, 171, 0.15);
+            background: rgba(125,164,171,0.03);
+        }
 
-.docs-page-info {
-    font-size: 12px;
-    color: var(--text-secondary);
-}
+        .docs-page-info {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
 
-.docs-page-btns {
-    display: flex;
-    gap: 4px;
-}
+        .docs-page-btns {
+            display: flex;
+            gap: 4px;
+        }
 
-.docs-page-btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    border: 1px solid rgba(125,164,171,0.3);
-    background: transparent;
-    font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
+        .docs-page-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(125,164,171,0.3);
+            background: transparent;
+            font-size: 12px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
 
-.docs-page-btn.active {
-    background: linear-gradient(135deg, #7da4ab, #197283);
-    color: white;
-    border-color: transparent;
-}
+        .docs-page-btn.active {
+            background: linear-gradient(135deg, #7da4ab, #197283);
+            color: white;
+            border-color: transparent;
+        }
 
-.docs-page-btn:hover:not(.active) {
-    background: rgba(125,164,171,0.12);
-    color: var(--secondary-dark);
-}
+        .docs-page-btn:hover:not(.active) {
+            background: rgba(125,164,171,0.12);
+            color: var(--secondary-dark);
+        }
 
-@media (max-width: 768px) {
-    .docs-stats { grid-template-columns: repeat(2, 1fr); }
-    .docs-table-head,
-    .docs-row { grid-template-columns: 2fr 1fr 80px; }
-    .docs-table-head span:nth-child(2),
-    .docs-row .docs-cell:nth-child(2),
-    .docs-table-head span:nth-child(4),
-    .docs-row .docs-cell:nth-child(4) { display: none; }
-}
+        @media (max-width: 768px) {
+            .docs-stats { grid-template-columns: repeat(2, 1fr); }
+            .docs-table-head,
+            .docs-row { grid-template-columns: 2fr 1fr 80px; }
+            .docs-table-head span:nth-child(2),
+            .docs-row .docs-cell:nth-child(2),
+            .docs-table-head span:nth-child(4),
+            .docs-row .docs-cell:nth-child(4) { display: none; }
+        }
 
-@media (max-width: 480px) {
-    .docs-stats { grid-template-columns: 1fr; }
-    .docs-toolbar { flex-direction: column; align-items: stretch; }
-}
+        @media (max-width: 480px) {
+            .docs-stats { grid-template-columns: 1fr; }
+            .docs-toolbar { flex-direction: column; align-items: stretch; }
+        }
+
+        /* Iframe overlay pour navigation same page */
+        .iframe-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+        }
+
+        .iframe-overlay iframe {
+            width: 100%;
+            height: calc(100% - 50px);
+            border: none;
+        }
+
+        .iframe-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .iframe-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .close-iframe {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-iframe:hover {
+            background: rgba(255,255,255,0.3);
+        }
     </style>
 </head>
 <body>
 
     <div class="main-container">
 
-      <div class="hero-image">
-    <img src="d40baaab-0817-40cf-b83e-851bde8f24da.png" alt="Bannière">
-</div>
+        <div class="hero-image">
+            <img src="d40baaab-0817-40cf-b83e-851bde8f24da.png" alt="Bannière">
+        </div>
+
         <!-- HEADER -->
         <header class="header">
             <h1>Portail Intranet</h1>
@@ -982,7 +978,6 @@
         <div class="apps-section">
             <h2 class="section-title">Applications</h2>
             <div class="apps-grid">
-
                 <!-- ERP -->
                 <div class="app-card" data-url="https://apps.powerapps.com/play/e/default-5528e550-b1f6-45c2-b0dc-eb46df5b3e99/a/5657189c-326d-4071-9aed-7c67983570e3?tenantId=5528e550-b1f6-45c2-b0dc-eb46df5b3e99&hint=3821cc0e-5e33-4de2-975c-4f2031de68f3&sourcetime=1749569147243" tabindex="0" role="button" aria-label="ERP">
                     <div class="app-icon-wrap">
@@ -995,18 +990,15 @@
                     </div>
                     <span class="app-label">ERP</span>
                 </div>
+            </div>
         </div>
-
-</div>
 
         <!-- ===== SECTION MENU NAVIGATION ===== -->
         <div class="menu-section">
             <h2 class="section-title">Dossier de travail clients</h2>
             <div class="menu-grid">
-
                 <!-- Client -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Lists/Clients/AllItems.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module client">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Lists/Clients/AllItems.aspx" tabindex="0" role="button" aria-label="Accéder au module client">
                     <div class="card-header">
                         <div class="card-icon icon-client"></div>
                         <div class="card-arrow">
@@ -1021,9 +1013,8 @@
                         <p class="card-description">Gestion de la relation client et développement commercial</p>
                     </div>
                 </div>
- <!-- Cabinet Tunisie -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Cabinettunisie/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Gestion">
+                <!-- Cabinet Tunisie -->
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Cabinettunisie/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Gestion">
                     <div class="card-header">
                         <div class="card-icon icon-cabinet-tunisie"></div>
                         <div class="card-arrow">
@@ -1038,9 +1029,8 @@
                         <p class="card-description">Pilotage des activités et gestion opérationnelle locale</p>
                     </div>
                 </div>
- <!-- Cabinet France -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Cabinetfrance/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Gestion">
+                <!-- Cabinet France -->
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Cabinetfrance/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Gestion">
                     <div class="card-header">
                         <div class="card-icon icon-cabinet-france"></div>
                         <div class="card-arrow">
@@ -1056,8 +1046,7 @@
                     </div>
                 </div>
                 <!-- Dossier cabinet -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Dossier%20Cabinet/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Documentation">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Dossier%20Cabinet/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Documentation">
                     <div class="card-header">
                         <div class="card-icon icon-dossier"></div>
                         <div class="card-arrow">
@@ -1072,9 +1061,8 @@
                         <p class="card-description">Organisation et centralisation des dossiers internes</p>
                     </div>
                 </div>
-<!-- Documentation -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Documentation/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Documentation">
+                <!-- Documentation -->
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Documentation/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Documentation">
                     <div class="card-header">
                         <div class="card-icon icon-documentation"></div>
                         <div class="card-arrow">
@@ -1090,8 +1078,7 @@
                     </div>
                 </div>
                 <!-- Assistante cabinet -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Assistante%20Cabinet/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Gestion">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Assistante%20Cabinet/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Gestion">
                     <div class="card-header">
                         <div class="card-icon icon-assistante"></div>
                         <div class="card-arrow">
@@ -1106,9 +1093,8 @@
                         <p class="card-description">Support administratif et coordination des tâches</p>
                     </div>
                 </div>
-<!-- Commissariat Aux Comptes -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Commissariat%20Aux%20Comptes/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module RH">
+                <!-- Commissariat Aux Comptes -->
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Commissariat%20Aux%20Comptes/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module RH">
                     <div class="card-header">
                         <div class="card-icon icon-commissariat"></div>
                         <div class="card-arrow">
@@ -1124,10 +1110,9 @@
                     </div>
                 </div>
                 <!-- Tenue comptable -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Tenue%20Comptable/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Juridique">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Tenue%20Comptable/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Juridique">
                     <div class="card-header">
-                       <div class="card-icon icon-tenue"></div>
+                        <div class="card-icon icon-tenue"></div>
                         <div class="card-arrow">
                             <svg viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1140,11 +1125,8 @@
                         <p class="card-description">Gestion des écritures et suivi comptable quotidien</p>
                     </div>
                 </div>
-
-
                 <!-- Assistance comptable -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Assistance%20Comptable/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder aux modèles de travail">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Assistance%20Comptable/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder aux modèles de travail">
                     <div class="card-header">
                         <div class="card-icon icon-assistance"></div>
                         <div class="card-arrow">
@@ -1159,12 +1141,8 @@
                         <p class="card-description">Accompagnement et conseil en gestion comptable</p>
                     </div>
                 </div>
-
-               
-
                 <!-- Mission spéciale -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Mission%20Sp%C3%A9ciale/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Commercial & Marketing">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Mission%20Sp%C3%A9ciale/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Commercial & Marketing">
                     <div class="card-header">
                         <div class="card-icon icon-mission-speciale"></div>
                         <div class="card-arrow">
@@ -1179,12 +1157,8 @@
                         <p class="card-description">Gestion des missions exceptionnelles et projets spécifiques</p>
                     </div>
                 </div>
-
-                
-
                 <!-- Expertise Judiciaire -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Expertise%20Judiciaire/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module Qualité">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Expertise%20Judiciaire/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module Qualité">
                     <div class="card-header">
                         <div class="card-icon icon-expertise"></div>
                         <div class="card-arrow">
@@ -1199,10 +1173,8 @@
                         <p class="card-description">Interventions légales et expertise auprès des tribunaux</p>
                     </div>
                 </div>
-
                 <!-- Mission CI -->
-                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Mission%20CI/SitePages/Home.aspx"
-                     tabindex="0" role="button" aria-label="Accéder au module IT">
+                <div class="menu-card" data-url="https://ccaexpertisetn.sharepoint.com/Mission%20CI/SitePages/Home.aspx" tabindex="0" role="button" aria-label="Accéder au module IT">
                     <div class="card-header">
                         <div class="card-icon icon-mission-ci"></div>
                         <div class="card-arrow">
@@ -1224,62 +1196,69 @@
         <div class="portal-section">
             <h2 class="portal-title">Lien vers les sites administratifs</h2>
             <div class="portal-grid">
-
                 <div class="portal-card" data-url="https://www.tunisieindustrie.nat.tn/fr/doc.asp?docid=753&mcat=22&mrub=178">
                     <img src='WhatsApp-Image-2025-03-18-à-11.12.04_efc0f9db.jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://jibaya.tn/">
                     <img src='WhatsApp-Image-2025-03-18-à-.jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.cnss.tn/fr/">
                     <img src='ss.jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.emploi.nat.tn/fo/Fr/global.php">
                     <img src='WhatsApp-Image-2025-03-18-à- (3).jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.apia.com.tn/">
                     <img src='WhatsApp-Image-2025-03-18-à-11.01.21_d28.jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://juridoc.tn/">
                     <img src='WhatsApp-Image-2025-03-18-à.jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="http://www.iort.gov.tn/WD120AWP/WD120Awp.exe/CONNECT/SITEIORT">
                     <img src='WhatsApp-Image-2025-03-18-à- (2).jpg' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.douane.gov.tn/">
                     <img src='OIP.webp' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.bct.gov.tn/bct/siteprod/index.jsp">
-                    <img src='OIP (1).webp' alt="">
+                    <img src='OIP%20(1).webp' alt="">
                 </div>
-
                 <div class="portal-card" data-url="https://www.registre-entreprises.tn/rne-public/#/">
                     <img src='RNE-1024x556.jpg' alt="">
                 </div>
-                
- <div class="portal-card" data-url="https://login-tej.finances.gov.tn/realms/seif/protocol/openid-connect/auth?client_id=seif-app&redirect_uri=https%3A%2F%2Ftej.finances.gov.tn%2F&state=bddd685a-7a34-4951-9fc4-6c70712d83e4&response_mode=fragment&response_type=code&scope=openid&nonce=ef138c66-e3f2-4c65-8acb-274bb75e79fb">
+                <div class="portal-card" data-url="https://login-tej.finances.gov.tn/realms/seif/protocol/openid-connect/auth?client_id=seif-app&redirect_uri=https%3A%2F%2Ftej.finances.gov.tn%2F&state=bddd685a-7a34-4951-9fc4-6c70712d83e4&response_mode=fragment&response_type=code&scope=openid&nonce=ef138c66-e3f2-4c65-8acb-274bb75e79fb">
                     <img src='logo-tej.jpg' alt="">
                 </div>
-                 <div class="portal-card" data-url="https://adhesion.elfatoora.tn/home">
+                <div class="portal-card" data-url="https://adhesion.elfatoora.tn/home">
                     <img src='ttn-logo.png' alt="">
                 </div>
-                
             </div>
-    
+        </div>
+    </div>
 
-
+    <!-- Iframe Overlay pour navigation same page -->
+    <div id="iframeOverlay" class="iframe-overlay">
+        <div class="iframe-header">
+            <h3 id="iframeTitle">Navigation</h3>
+            <button class="close-iframe" onclick="closeIframe()">✕</button>
+        </div>
+        <iframe id="contentIframe" src="about:blank"></iframe>
     </div>
 
     <script>
+        const API_KEY = "bd09c37e2c7f4e15e1de8b7e42c2de21";
 
+        function getIcon(condition) {
+            switch(condition) {
+                case "Clear": return "☀️";
+                case "Clouds": return "☁️";
+                case "Rain": return "🌧️";
+                case "Snow": return "❄️";
+                case "Thunderstorm": return "⛈️";
+                case "Drizzle": return "🌦️";
+                default: return "🌡️";
+            }
+        }
 
         function getWeather(lat, lon) {
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=fr&appid=${API_KEY}`)
@@ -1301,21 +1280,136 @@
                 .then(res => res.json())
                 .then(data => {
                     const container = document.getElementById("forecast");
-                    container.innerHTML = "";
-                    const daily = data.list.filter((item, index) => index % 8 === 0);
-                    daily.slice(0, 5).forEach(d => {
-                        const date = new Date(d.dt_txt);
-                        container.innerHTML += `
-                            <div class="day">
-                                <h4>${date.toLocaleDateString("fr-FR", {weekday:"short"})}</h4>
-                                <div>${getIcon(d.weather[0].main)}</div>
-                                <p>${Math.round(d.main.temp)}°</p>
-                            </div>
-                        `;
-                    });
+                    if (container) {
+                        container.innerHTML = "";
+                        const daily = data.list.filter((item, index) => index % 8 === 0);
+                        daily.slice(0, 5).forEach(d => {
+                            const date = new Date(d.dt_txt);
+                            container.innerHTML += `
+                                <div class="day">
+                                    <h4>${date.toLocaleDateString("fr-FR", {weekday:"short"})}</h4>
+                                    <div>${getIcon(d.weather[0].main)}</div>
+                                    <p>${Math.round(d.main.temp)}°</p>
+                                </div>
+                            `;
+                        });
+                    }
                 });
         }
 
+        // Fonction pour ouvrir un lien dans le même onglet (iframe overlay)
+        function openInSamePage(url, title) {
+            const overlay = document.getElementById('iframeOverlay');
+            const iframe = document.getElementById('contentIframe');
+            const titleEl = document.getElementById('iframeTitle');
+            
+            if (title) {
+                titleEl.innerText = title;
+            } else {
+                titleEl.innerText = 'Navigation';
+            }
+            
+            iframe.src = url;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeIframe() {
+            const overlay = document.getElementById('iframeOverlay');
+            const iframe = document.getElementById('contentIframe');
+            overlay.style.display = 'none';
+            iframe.src = 'about:blank';
+            document.body.style.overflow = '';
+        }
+
+        // Gestion des clics pour tous les éléments avec data-url
+        function handleNavigationClick(element) {
+            const url = element.getAttribute('data-url');
+            const title = element.getAttribute('aria-label') || 
+                         element.querySelector('.card-title, .app-label, .portal-title')?.innerText || 
+                         'Page';
+            if (url) {
+                openInSamePage(url, title);
+            }
+        }
+
+        // Clics menu-card
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                handleNavigationClick(this);
+            });
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.stopPropagation();
+                    handleNavigationClick(this);
+                }
+            });
+        });
+
+        // Clics portal-card
+        document.querySelectorAll('.portal-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                handleNavigationClick(this);
+            });
+        });
+
+        // Clics app-card
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                handleNavigationClick(this);
+            });
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.stopPropagation();
+                    handleNavigationClick(this);
+                }
+            });
+        });
+
+        // Ajouter la section météo (optionnel si elle n'existe pas dans le HTML)
+        const weatherHTML = `
+            <div class="weather-section">
+                <div class="today">
+                    <div class="location">
+                        <span id="city">Tunis, TN</span>
+                        <div class="date" id="date"></div>
+                    </div>
+                    <div class="main">
+                        <div class="temp" id="temp">--°</div>
+                        <div class="icon" id="icon">🌡️</div>
+                    </div>
+                    <div class="desc" id="desc">Chargement...</div>
+                    <div class="details">
+                        <div class="box"><h4>Ressenti</h4><p id="feels">--°</p></div>
+                        <div class="box"><h4>Humidité</h4><p id="humidity">--%</p></div>
+                        <div class="box"><h4>Vent</h4><p id="wind">-- km/h</p></div>
+                        <div class="box"><h4>Pression</h4><p id="pressure">-- hPa</p></div>
+                    </div>
+                </div>
+                <div class="forecast" id="forecast"></div>
+            </div>
+        `;
+
+        // Insérer la météo après le header
+        const header = document.querySelector('.header');
+        if (header && !document.querySelector('.weather-section')) {
+            header.insertAdjacentHTML('afterend', weatherHTML);
+        }
+
+        // Initialiser la date
+        function updateDate() {
+            const dateEl = document.getElementById('date');
+            if (dateEl) {
+                const now = new Date();
+                dateEl.innerText = now.toLocaleDateString("fr-FR", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            }
+        }
+        updateDate();
+
+        // Météo
         navigator.geolocation.getCurrentPosition(pos => {
             getWeather(pos.coords.latitude, pos.coords.longitude);
             getForecast(pos.coords.latitude, pos.coords.longitude);
@@ -1323,44 +1417,6 @@
             getWeather(36.8065, 10.1815);
             getForecast(36.8065, 10.1815);
         });
-
-        // Clics menu-card
-        document.querySelectorAll('.menu-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const url = this.getAttribute('data-url');
-               if (url) {
-            window.open(url, '_blank'); // même onglet
-        }
-            });
-            card.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const url = this.getAttribute('data-url');
-                    if (url) window.open(url, '_blank');
-                }
-            });
-        });
-
-        // Clics portal-card
-        document.querySelectorAll('.portal-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const url = this.getAttribute('data-url');
-                if (url) window.open(url, '_blank');
-            });
-        });
-
-        // Clics app-card
-        document.querySelectorAll('.app-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const url = this.getAttribute('data-url');
-                if (url) window.open(url, '_blank');
-            });
-            card.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const url = this.getAttribute('data-url');
-                    if (url) window.open(url, '_blank');
-                }
-            });
-        });
-
-       
     </script>
+</body>
+</html>
