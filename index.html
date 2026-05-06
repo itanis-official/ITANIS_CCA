@@ -458,6 +458,29 @@
             .card-icon { width: 40px; height: 40px; font-size: 1.25rem; }
             .apps-grid { grid-template-columns: repeat(2, 1fr); }
         }
+  @media (max-width: 768px) {
+    .portal-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding-bottom: 10px;
+
+        /* scroll fluide */
+        scroll-behavior: smooth;
+
+        /* cache scrollbar (optionnel) */
+        scrollbar-width: none;
+    }
+
+    .portal-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .portal-card {
+        min-width: 120px; /* largeur fixe pour scroll */
+        flex: 0 0 auto;
+    }
+}
     </style>
 </head>
 <body>
