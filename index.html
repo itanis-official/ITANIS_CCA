@@ -61,7 +61,7 @@
 /* Image mobile */
 @media (max-width: 768px) {
     .hero-image {
-        object-position: 120% center;
+        object-position: 200% center;
         background-image: url("image-mobile.png");
     }
 }
@@ -1311,12 +1311,7 @@
         <!-- ===== SECTION LISTE DOCUMENTS ===== -->
 
  
-        <header class="header2">
-            <div class="header2-content">
-                <img src='Logo_ITANIS_FN-2500.png' alt="Logo ITANIS" class="logo">
-                <p>Powered by ITANIS © 2026</p>
-            </div>
-        </header>
+       
 
     </div>
 
@@ -1341,65 +1336,7 @@
             }
         }
 
-        // Météo - API Key
-        const API_KEY = "bd09c37e2c7f4e15e1de8b7e42c2de21";
 
-        function getIcon(condition) {
-            switch(condition) {
-                case "Clear": return "☀️";
-                case "Clouds": return "☁️";
-                case "Rain": return "🌧️";
-                case "Snow": return "❄️";
-                case "Thunderstorm": return "⛈️";
-                case "Drizzle": return "🌦️";
-                default: return "🌡️";
-            }
-        }
-
-        function getWeather(lat, lon) {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=fr&appid=${API_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("city").innerText = data.name + ", " + data.sys.country;
-                    document.getElementById("temp").innerText = Math.round(data.main.temp) + "°";
-                    document.getElementById("desc").innerText = data.weather[0].description;
-                    document.getElementById("icon").innerText = getIcon(data.weather[0].main);
-                    document.getElementById("feels").innerText = Math.round(data.main.feels_like) + "°";
-                    document.getElementById("humidity").innerText = data.main.humidity + "%";
-                    document.getElementById("wind").innerText = Math.round(data.wind.speed * 3.6) + " km/h";
-                    document.getElementById("pressure").innerText = data.main.pressure + " hPa";
-                });
-        }
-
-        function getForecast(lat, lon) {
-            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=fr&appid=${API_KEY}`)
-                .then(res => res.json())
-                .then(data => {
-                    const container = document.getElementById("forecast");
-                    if (container) {
-                        container.innerHTML = "";
-                        const daily = data.list.filter((item, index) => index % 8 === 0);
-                        daily.slice(0, 5).forEach(d => {
-                            const date = new Date(d.dt_txt);
-                            container.innerHTML += `
-                                <div class="day">
-                                    <h4>${date.toLocaleDateString("fr-FR", {weekday:"short"})}</h4>
-                                    <div>${getIcon(d.weather[0].main)}</div>
-                                    <p>${Math.round(d.main.temp)}°</p>
-                                </div>
-                            `;
-                        });
-                    }
-                });
-        }
-
-        navigator.geolocation.getCurrentPosition(pos => {
-            getWeather(pos.coords.latitude, pos.coords.longitude);
-            getForecast(pos.coords.latitude, pos.coords.longitude);
-        }, () => {
-            getWeather(36.8065, 10.1815);
-            getForecast(36.8065, 10.1815);
-        });
 
         // ===== NAVIGATION CORRIGÉE (même onglet) =====
         // Clics menu-card
@@ -1445,137 +1382,12 @@
             });
         });
 
-        // ===== DOCUMENTS SHAREPOINT =====
-        const SHAREPOINT_SITE = "https://ccaexpertisetn.sharepoint.com";
-        const LIBRARY_NAME = "Shared Documents";
-        const DOCS_PER_PAGE = 8;
+      
 
-        let allDocs = [];
-        let filteredDocs = [];
-        let currentPage = 1;
-        let activeDocFilter = 'Tous';
 
-        function getDocExt(filename) {
-            if (!filename) return 'other';
-            const ext = filename.split('.').pop().toLowerCase();
-            return ['pdf','xlsx','xls','docx','doc','pptx','ppt'].includes(ext)
-                ? (ext === 'xls' ? 'xlsx' : ext === 'doc' ? 'docx' : ext === 'ppt' ? 'pptx' : ext)
-                : 'other';
-        }
+     
 
-        function formatDocDate(dateStr) {
-            if (!dateStr) return '—';
-            return new Date(dateStr).toLocaleDateString('fr-FR', {
-                day: '2-digit', month: 'short', year: 'numeric'
-            });
-        }
-
-        function isThisWeek(dateStr) {
-            if (!dateStr) return false;
-            const d = new Date(dateStr);
-            const now = new Date();
-            const diff = (now - d) / (1000 * 60 * 60 * 24);
-            return diff <= 7;
-        }
-
-        function renderDocs() {
-            const body = document.getElementById('docs-list-body');
-            const start = (currentPage - 1) * DOCS_PER_PAGE;
-            const page = filteredDocs.slice(start, start + DOCS_PER_PAGE);
-
-            if (!page.length) {
-                body.innerHTML = '<div class="docs-empty">Aucun document trouvé.</div>';
-                document.getElementById('doc-page-info').textContent = '';
-                document.getElementById('doc-page-btns').innerHTML = '';
-                return;
-            }
-
-            body.innerHTML = page.map(doc => {
-                const ext = getDocExt(doc.FileLeafRef);
-                const label = ext === 'other' ? 'FILE' : ext.toUpperCase();
-                const url = `${SHAREPOINT_SITE}${doc.FileRef}`;
-                const author = doc.Editor ? doc.Editor.Title : (doc.Author ? doc.Author.Title : '—');
-                return `
-                <div class="docs-row" onclick="openInSameTab('${url}')">
-                    <div class="docs-name-cell">
-                        <div class="docs-icon ${ext}">${label}</div>
-                        <span class="docs-file-name" title="${doc.FileLeafRef}">${doc.FileLeafRef}</span>
-                    </div>
-                    <span class="docs-cell">${author}</span>
-                    <span class="docs-cell">${formatDocDate(doc.Modified)}</span>
-                    <span class="docs-cell"><span class="docs-type-badge ${ext}">${label}</span></span>
-                    <a class="docs-open-btn" href="#" onclick="event.stopPropagation(); openInSameTab('${url}'); return false;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        Ouvrir
-                    </a>
-                </div>`;
-            }).join('');
-
-            const total = filteredDocs.length;
-            const totalPages = Math.ceil(total / DOCS_PER_PAGE);
-            document.getElementById('doc-page-info').textContent =
-                `${start + 1}–${Math.min(start + DOCS_PER_PAGE, total)} sur ${total} document${total > 1 ? 's' : ''}`;
-
-            const btns = document.getElementById('doc-page-btns');
-            btns.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {
-                btns.innerHTML += `<button class="docs-page-btn ${i === currentPage ? 'active' : ''}" onclick="goDocPage(${i})">${i}</button>`;
-            }
-        }
-
-        function goDocPage(p) {
-            currentPage = p;
-            renderDocs();
-        }
-
-        function filterDocuments() {
-            const q = document.getElementById('doc-search').value.toLowerCase();
-            filteredDocs = allDocs.filter(d => {
-                const name = (d.FileLeafRef || '').toLowerCase();
-                const ext = getDocExt(d.FileLeafRef);
-                const matchFilter = activeDocFilter === 'Tous' || ext === activeDocFilter;
-                const matchSearch = !q || name.includes(q);
-                return matchFilter && matchSearch;
-            });
-            currentPage = 1;
-            renderDocs();
-        }
-
-        function setDocFilter(el, f) {
-            document.querySelectorAll('.docs-pill').forEach(p => p.classList.remove('active'));
-            el.classList.add('active');
-            activeDocFilter = f;
-            filterDocuments();
-        }
-
-        function loadSharePointDocs() {
-            const url = `${SHAREPOINT_SITE}/_api/web/lists/getbytitle('${LIBRARY_NAME}')/items?$select=FileLeafRef,FileRef,Modified,Editor/Title,Author/Title&$expand=Editor,Author&$orderby=Modified desc&$top=100`;
-
-            fetch(url, {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json;odata=verbose"
-                },
-                credentials: "include"
-            })
-            .then(res => res.json())
-            .then(data => {
-                allDocs = data.d.results || [];
-                filteredDocs = [...allDocs];
-
-                const recent = allDocs.filter(d => isThisWeek(d.Modified)).length;
-
-                document.getElementById('doc-total').textContent = allDocs.length;
-                document.getElementById('doc-recent').textContent = recent;
-
-                renderDocs();
-            })
-            .catch(err => {
-                console.error("Erreur SharePoint :", err);
-                document.getElementById('docs-list-body').innerHTML =
-                    "<div class='docs-empty'>Impossible de charger les documents</div>";
-            });
-        }
+      
 
         loadSharePointDocs();
     </script>
